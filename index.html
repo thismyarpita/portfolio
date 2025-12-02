@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arpita Jain — Power Platform & Web Developer</title>
+  <meta name="description" content="Arpita Jain — Power Platform Developer | WordPress Developer | Power Apps, Power Pages, Power Automate, WordPress, WooCommerce" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f172a; --bg2:#0b1220; --accent:#7c3aed; --muted:#94a3b8; --glass:rgba(255,255,255,0.04);
+      --card: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,var(--bg1),var(--bg2));-webkit-font-smoothing:antialiased}
+
+    /* container */
+    .wrap{max-width:1100px;margin:40px auto;padding:24px}
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 6px 18px rgba(12,12,24,0.6)}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:white}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:center;margin-top:28px}
+    .intro{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:16px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:0.6px}
+    h1{margin:12px 0 6px;font-size:28px}
+    p.lead{color:var(--muted);margin:0 0 14px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:var(--card);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
+
+    .contact-card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.6);display:flex;flex-direction:column;gap:12px}
+    .contact-item{display:flex;gap:12px;align-items:center}
+    .contact-item strong{display:block}
+    .links{display:flex;gap:10px;margin-top:6px}
+    .link-btn{padding:8px 10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);text-decoration:none;font-weight:600}
+
+    /* sections */
+    section{margin-top:28px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.5)}
+    h3{margin:0 0 8px}
+    ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+
+    /* skills */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
+
+    /* projects */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));transition:transform .36s cubic-bezier(.2,.9,.3,1),box-shadow .36s}
+    .project:hover{transform:translateY(-8px);box-shadow:0 14px 45px rgba(12,18,45,0.6)}
+    .project h4{margin:0 0 8px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .project a{margin-top:10px;display:inline-block}
+
+    /* footer */
+    footer{margin:36px 0 80px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* floating blobs */
+    .bg-blobs{position:fixed;inset:0;pointer-events:none;z-index:0}
+    .blob{position:absolute;border-radius:50%;filter:blur(36px);opacity:0.22;mix-blend-mode:screen}
+    .blob.b1{width:320px;height:320px;left:-80px;top:-60px;background:linear-gradient(135deg,#7c3aed,#06b6d4)}
+    .blob.b2{width:240px;height:240px;right:-60px;bottom:-80px;background:linear-gradient(135deg,#f97316,#f43f5e)}
+
+    /* small screens */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+      .wrap{padding:16px;margin:20px auto}
+      .logo{width:56px;height:56px}
+    }
+
+    /* reveal on scroll */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* typing */
+    .typing{display:inline-block;border-right:2px solid rgba(255,255,255,0.6);padding-right:6px;margin-left:4px}
+  </style>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+  </div>
+
+  <main class="wrap" role="main">
+    <header>
+      <div class="brand">
+        <div class="logo">AJ</div>
+        <div>
+          <div style="color:var(--muted);font-size:13px">Arpita Jain</div>
+          <div style="font-weight:700">Power Platform Developer • WordPress Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="intro card reveal">
+        <div class="eyebrow">Power Platform • WordPress • Web</div>
+        <h1>Hi, I'm Arpita — I build Power Apps, Power Pages and modern WordPress websites</h1>
+        <p class="lead">7+ years building enterprise-grade solutions: Power Apps, Power Automate, Dataverse, WordPress &amp; WooCommerce. Fast, accessible and SEO-friendly web experiences.</p>
+
+        <div class="badges">
+          <span class="badge">Power Apps</span>
+          <span class="badge">Power Pages</span>
+          <span class="badge">Power Automate</span>
+          <span class="badge">WordPress</span>
+          <span class="badge">WooCommerce</span>
+          <span class="badge">HTML • CSS • JS</span>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px">
+          <a class="link-btn" href="mailto:imarpitaj@gmail.com">✉ imarpitaj@gmail.com</a>
+          <a class="link-btn" href="tel:+919479795289">📞 +91 94797 95289</a>
+          <a class="link-btn" href="https://linkedin.com/in/arpita-jain" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="contact-card reveal">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:800">AJ</div>
+          <div>
+            <div style="font-weight:700">Arpita Jain</div>
+            <div style="color:var(--muted);font-size:13px">Power Platform & WordPress</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.03);padding-top:12px">
+          <div class="contact-item"><strong>Location</strong><span style="color:var(--muted)">Indore, MP, India</span></div>
+          <div class="contact-item"><strong>GitHub</strong><a href="https://github.com/arpita-jain" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none">github.com/arpita-jain</a></div>
+          <div class="contact-item"><strong>Email</strong><span style="color:var(--muted)">imarpitaj@gmail.com</span></div>
+          <div class="contact-item"><strong>Phone</strong><span style="color:var(--muted)">+91 94797 95289</span></div>
+        </div>
+
+        <div class="links">
+          <a class="link-btn" href="#projects">View Projects</a>
+          <a class="link-btn" href="#contact">Hire Me</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="reveal">
+      <div class="card">
+        <h3>Professional Summary</h3>
+        <p style="color:var(--muted);margin:6px 0 0">Experienced in Microsoft Power Platform (Power Apps, Power Automate, Power Pages), Dataverse, and WordPress/WooCommerce. Skilled with HTML, CSS, JavaScript, PHP and API integrations. Comfortable with Figma-to-code workflows and basic React component work.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="grid-2">
+      <div class="card reveal">
+        <h3>Core Skills</h3>
+        <div class="skills" style="margin-top:10px">
+          <span class="skill">Power Apps (Canvas & Model-driven)</span>
+          <span class="skill">Power Pages</span>
+          <span class="skill">Power Automate</span>
+          <span class="skill">Dataverse</span>
+          <span class="skill">Custom Connectors</span>
+          <span class="skill">WordPress • WooCommerce</span>
+          <span class="skill">PHP • ACF Pro</span>
+          <span class="skill">HTML5 • CSS3 • JavaScript • jQuery</span>
+          <span class="skill">Responsive UI/UX • SEO</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h3>Tools & Hosting</h3>
+        <ul>
+          <li>Builder.io, Figma, VS Code, Git, Bitbucket</li>
+          <li>GoDaddy, Bluehost, SiteGround, WPEngine</li>
+          <li>Google Analytics, GTMetrix, Hotjar</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="card">
+        <h3>Work History (Selected)</h3>
+        <ul>
+          <li><strong>Bitcot Technologies</strong> — WordPress Developer (Oct 2021 – Present). Power Platform apps, Power Pages, WordPress & performance improvements.</li>
+          <li><strong>Soluzione IT Services</strong> — Web Developer (Aug 2019 – Oct 2021). 50+ responsive sites, Analytics integrations.</li>
+          <li><strong>Infominez Technologies</strong> — Web Developer (Oct 2018 – Aug 2019). Magento e-commerce, hosting & GA event tracking.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3 style="color:white">Selected Projects</h3>
+      <div class="projects reveal">
+        <div class="project">
+          <h4>TalimarFinancial.com</h4>
+          <p>Built Power Pages front-end with Dataverse data and API integrations.</p>
+          <a href="https://www.talimarfinancial.com" target="_blank" rel="noopener">Open site →</a>
+        </div>
+        <div class="project">
+          <h4>SkyyLiving</h4>
+          <p>E-commerce &amp; theme customization.</p>
+          <a href="https://skyyliving.com" target="_blank" rel="noopener">Open site →</a>
+        </div>
+        <div class="project">
+          <h4>Raphaels</h4>
+          <p>WordPress site with performance and SEO improvements.</p>
+          <a href="https://www.raphaels.com" target="_blank" rel="noopener">Open site →</a>
+        </div>
+        <div class="project">
+          <h4>Daylight Transport</h4>
+          <p>Power Apps (Canvas + Model-driven) and Power Automate workflows for transport management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="card">
+        <h3>Contact</h3>
+        <p style="color:var(--muted)">I'm available for freelance and full-time roles. Reach out — I typically respond within 24–48 hours.</p>
+        <p style="margin-top:8px"><strong>Email:</strong> <a href="mailto:imarpitaj@gmail.com">imarpitaj@gmail.com</a><br><strong>Phone:</strong> <a href="tel:+919479795289">+91 94797 95289</a></p>
+        <div style="margin-top:12px">
+          <a class="link-btn" href="https://github.com/arpita-jain" target="_blank" rel="noopener">GitHub</a>
+          <a class="link-btn" href="https://linkedin.com/in/arpita-jain" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built with ❤️ by Arpita • <span id="year"></span>
+    </footer>
+  </main>
+
+  <script>
+    // small helpers: reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, {threshold:0.12});
+    reveals.forEach(r=>obs.observe(r));
+
+    // typing effect for hero role
+    const roles = ["Power Platform Developer","WordPress Developer","Web Developer"];
+    let ri=0, ci=0; const typingEl = document.createElement('span'); typingEl.className='typing';
+    document.querySelector('.eyebrow').appendChild(typingEl);
+    function tick(){
+      const s = roles[ri].slice(0,ci);
+      typingEl.textContent = s;
+      ci++;
+      if(ci>roles[ri].length+8){ci=0;ri=(ri+1)%roles.length}
+      setTimeout(tick, ci>roles[ri].length?1200:90);
+    }
+    tick();
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // keyboard accessible focus styles
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Tab') document.body.classList.add('user-tabbing');
+    });
+  </script>
+</body>
+</html>
