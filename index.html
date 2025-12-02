@@ -69,12 +69,117 @@
     .blob.b2{width:240px;height:240px;right:-60px;bottom:-80px;background:linear-gradient(135deg,#f97316,#f43f5e)}
 
     /* small screens */
+    @media (max-width:1024px){
+    .wrap{
+      padding: 18px;
+    }
+    .hero{
+      grid-template-columns: 1fr 300px;
+    }
+    }
     @media (max-width:880px){
       .hero{grid-template-columns:1fr}
       nav{display:none}
       .wrap{padding:16px;margin:20px auto}
       .logo{width:56px;height:56px}
     }
+    @media (max-width:768px){
+      .hero{
+        grid-template-columns: 1fr;
+      }
+    
+      h1{
+        font-size: 24px;
+      }
+    
+      .projects{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+    @media (max-width:520px){
+          .wrap{
+            padding: 14px;
+            margin: 14px auto;
+          }
+        
+          /* Header */
+          header{
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+          .brand div:last-child{
+            font-size: 15px;
+          }
+        
+          /* Hero */
+          .hero{
+            display: block;
+          }
+          h1{
+            font-size: 22px;
+            line-height: 1.3;
+          }
+          .lead{
+            font-size: 14px;
+          }
+        
+          /* Badges */
+          .badge{
+            padding: 6px 10px;
+            font-size: 12px;
+          }
+        
+          /* Contact Card */
+          .contact-card{
+            margin-top: 20px;
+          }
+        
+          /* 2 Column Sections → 1 Column */
+          .grid-2{
+            grid-template-columns: 1fr;
+          }
+        
+          /* General card padding */
+          .card{
+            padding: 14px;
+          }
+        
+          /* Skills Chips */
+          .skills{
+            gap: 6px;
+          }
+          .skill{
+            font-size: 12px;
+            padding: 6px 10px;
+          }
+        
+          /* Projects Grid */
+          .projects{
+            grid-template-columns: 1fr;
+          }
+          .project{
+            padding: 14px;
+          }
+        
+          .project h4{
+            font-size: 16px;
+          }
+          .project p{
+            font-size: 13px;
+          }
+        
+          /* Contact Buttons */
+          .link-btn{
+            font-size: 13px;
+            padding: 7px 10px;
+          }
+        
+          footer{
+            font-size: 12px;
+            margin-bottom: 40px;
+          }
+        }
 
     /* reveal on scroll */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
